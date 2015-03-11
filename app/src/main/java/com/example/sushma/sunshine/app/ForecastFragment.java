@@ -77,6 +77,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     static final int COL_WEATHER_CONDITION_ID = 6;
     static final int COL_COORD_LAT = 7;
     static final int COL_COORD_LONG = 8;
+
         ForecastAdapter adapter;
 
         public ForecastFragment() {
@@ -154,6 +155,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     private void updateWeather() {
         FetchWeatherTask fwt = new FetchWeatherTask(getActivity());
         String location = Utility.getPreferredLocation(getActivity());
+        fwt.execute(location);
     }
 
     private String getPreferredLocation() {
